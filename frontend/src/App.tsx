@@ -100,13 +100,14 @@ export default function App() {
   return (
     <div className="app-root">
       <header className="app-header">
+        <div className="header-meta">
+          <span>FOSSEE Osdag</span>
+        </div>
         <div className="header-brand">
           <span className="header-title">Group Design</span>
           <span className="header-subtitle">Steel Bridge — Composite Girder</span>
         </div>
         <div className="header-meta">
-          <span>FOSSEE Osdag</span>
-          <span className="sep">·</span>
           <span>IRC 24:2010</span>
         </div>
       </header>
@@ -157,14 +158,6 @@ export default function App() {
 
                 <div className="form-actions">
                   <button
-                    id="btn-design"
-                    className="btn btn-primary btn-large"
-                    disabled={isOther || designing}
-                    onClick={handleDesign}
-                  >
-                    {designing ? 'Running…' : 'Design'}
-                  </button>
-                  <button
                     id="btn-reset"
                     className="btn btn-ghost"
                     disabled={designing}
@@ -186,83 +179,59 @@ export default function App() {
         </section>
 
         <section className="right-panel">
-          {result ? (
-            <ResultsPanel result={result} onClose={() => setResult(null)} />
-          ) : (
-            <div className="diagram-container">
-              <p className="diagram-label">Bridge Cross-Section</p>
-              <img
-                src={BRIDGE_IMG}
-                alt="Steel composite bridge cross-section diagram"
-                className="bridge-diagram"
-                onError={e => {
-                  (e.currentTarget as HTMLImageElement).src =
-                    'https://placehold.co/800x560/e8ecf0/374151?text=Bridge+Cross-Section';
-                }}
-              />
-            </div>
-          )}
+          <div className="diagram-container">
+            <p className="diagram-label">Bridge Cross-Section</p>
+            <img
+              src={BRIDGE_IMG}
+              alt="Steel composite bridge cross-section diagram"
+              className="bridge-diagram"
+              onError={e => {
+                (e.currentTarget as HTMLImageElement).src =
+                  'https://placehold.co/800x560/e8ecf0/374151?text=Bridge+Cross-Section';
+              }}
+            />
+          </div>
+          <DynamicSummaryPanel state={state} />
         </section>
       </main>
     </div>
   );
 }
 
-interface ResultsPanelProps {
-  result: DesignResponse;
-  onClose: () => void;
+interface DynamicSummaryProps {
+  state: AppState;
 }
 
-function ResultsPanel({ result, onClose }: ResultsPanelProps) {
-  const inp = result.inputs as Record<string, unknown>;
+function DynamicSummaryPanel({ state }: DynamicSummaryProps) {
+  const cw = parseFloat(state.geometry.carriagewayWidth);
+  const bw = !isNaN(cw) ? cw + 5.0 : null;
+
+  const fmt = (val: string | number | null | undefined, suffix = '') => {
+    if (val === null || val === undefined || val === '') return '-';
+    if (typeof val === 'number' && isNaN(val)) return '-';
+    return `${val}${suffix}`;
+  };
 
   return (
-    <div className="results-panel">
-      <div className="results-header">
-        <span className={`results-badge ${result.ok ? 'badge-ok' : 'badge-err'}`}>
-          {result.ok ? '✓ Valid' : '✗ Invalid'}
-        </span>
-        <span className="results-title">Design Summary</span>
-        <button className="btn btn-ghost results-close" onClick={onClose}>← Back</button>
-      </div>
-
-      <div className="results-body">
-        <p className="results-message">{result.message}</p>
-
-        {result.warnings.length > 0 && (
-          <div className="results-warnings">
-            <p className="results-block-title">Warnings</p>
-            {result.warnings.map((w, i) => (
-              <p key={i} className="results-warning-item">⚠ {w}</p>
-            ))}
+    <div className="form-section" style={{ width: 'calc(100% - 40px)', maxWidth: '800px', margin: '20px auto' }}>
+      <div className="section-title">Design Summary</div>
+        <div className="results-blocks-row">
+          <div className="results-block">
+            <ResultRow label="Structure Type" value={fmt(state.structureType)} />
+            <ResultRow label="Span" value={fmt(state.geometry.span, ' m')} />
+            <ResultRow label="Carriageway Width" value={fmt(state.geometry.carriagewayWidth, ' m')} />
+            <ResultRow label="Overall Bridge Width" value={fmt(bw, ' m')} />
+            <ResultRow label="Footpath" value={fmt(state.geometry.footpath)} />
+            <ResultRow label="Skew Angle" value={fmt(state.geometry.skewAngle, '°')} />
           </div>
-        )}
-
-        <div className="results-block">
-          <p className="results-block-title">Geometry</p>
-          <ResultRow label="Span" value={`${inp.span_m} m`} />
-          <ResultRow label="Carriageway Width" value={`${inp.carriageway_width_m} m`} />
-          <ResultRow label="Overall Bridge Width" value={`${inp.overall_bridge_width_m} m`} />
-          <ResultRow label="Footpath" value={String(inp.footpath)} />
-          <ResultRow label="Skew Angle" value={`${inp.skew_angle_deg}°`} />
-          {inp.girder_spacing_m != null && <ResultRow label="Girder Spacing" value={`${inp.girder_spacing_m} m`} />}
-          {inp.num_girders != null && <ResultRow label="No. of Girders" value={String(inp.num_girders)} />}
-          {inp.deck_overhang_m != null &&
-            <ResultRow label="Deck Overhang" value={`${inp.deck_overhang_m} m`} />}
-        </div>
-
-        <div className="results-block">
-          <p className="results-block-title">Materials</p>
-          <ResultRow label="Girder Steel" value={String(inp.girder_steel)} />
-          <ResultRow label="Cross Bracing Steel" value={String(inp.cross_bracing_steel)} />
-          <ResultRow label="Deck Concrete" value={String(inp.deck_concrete)} />
-        </div>
-
-        {result.results === null && (
-          <p className="results-engine-note">
-            Design engine output will appear here once the Osdag calculation module is connected.
-          </p>
-        )}
+          <div className="results-block">
+            <ResultRow label="Girder Spacing" value={fmt(state.additionalGeometry.girderSpacing, ' m')} />
+            <ResultRow label="No. of Girders" value={fmt(state.additionalGeometry.numGirders)} />
+            <ResultRow label="Deck Overhang" value={fmt(state.additionalGeometry.deckOverhang, ' m')} />
+            <ResultRow label="Girder Steel" value={fmt(state.materials.girderSteel)} />
+            <ResultRow label="Cross Bracing Steel" value={fmt(state.materials.crossBracingSteel)} />
+            <ResultRow label="Deck Concrete" value={fmt(state.materials.deckConcrete)} />
+          </div>
       </div>
     </div>
   );

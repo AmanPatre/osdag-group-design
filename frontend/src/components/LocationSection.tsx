@@ -26,7 +26,7 @@ export default function LocationSection({ value, onChange, disabled }: Props) {
       .catch(() => setStateListErr(true));
   }, []);
 
-  const stateMap   = apiStates ?? staticDistricts;
+  const stateMap = apiStates ?? staticDistricts;
   const stateNames = apiStates ? Object.keys(apiStates).sort() : staticStates;
 
   useEffect(() => {
@@ -40,11 +40,11 @@ export default function LocationSection({ value, onChange, disabled }: Props) {
       .then(data => {
         if (cancelled) return;
         const resolved: LocationData = {
-          windSpeed:     data.wind_speed,
-          seismicZone:   data.seismic_zone,
+          windSpeed: data.wind_speed,
+          seismicZone: data.seismic_zone,
           seismicFactor: data.seismic_factor,
-          maxTemp:       data.max_temp,
-          minTemp:       data.min_temp,
+          maxTemp: data.max_temp,
+          minTemp: data.min_temp,
         };
         onChange({ ...value, resolved });
       })
@@ -60,7 +60,7 @@ export default function LocationSection({ value, onChange, disabled }: Props) {
       .finally(() => { if (!cancelled) setLocLoading(false); });
 
     return () => { cancelled = true; };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+
   }, [value.district, value.mode]);
 
   function setMode(mode: 'name' | 'custom' | null) {
@@ -92,7 +92,7 @@ export default function LocationSection({ value, onChange, disabled }: Props) {
         value={value.mode}
         onChange={v => setMode(v as 'name' | 'custom' | null)}
         options={[
-          { value: 'name',   label: 'Enter Location Name' },
+          { value: 'name', label: 'Enter Location Name' },
           { value: 'custom', label: 'Tabulate Custom Loading Parameters' },
         ]}
       />
@@ -121,8 +121,8 @@ export default function LocationSection({ value, onChange, disabled }: Props) {
             {districts.map(d => <option key={d} value={d}>{d}</option>)}
           </SelectField>
 
-          {locLoading   && <p className="location-loading">Fetching IS code data…</p>}
-          {locErr       && <p className="field-error">{locErr}</p>}
+          {locLoading && <p className="location-loading">Fetching IS code data…</p>}
+          {locErr && <p className="field-error">{locErr}</p>}
           {stateListErr && (
             <p className="field-error" style={{ marginTop: 4 }}>
               Could not load state list from server — using built-in data.

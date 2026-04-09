@@ -77,8 +77,16 @@ export default function App() {
     try {
       const res = await submitDesign(buildPayload(state));
       if (res.errors) {
-        const firstErr = Object.values(res.errors).flat().join(' ');
-        setSubmitError(`Validation error: ${firstErr}`);
+        const flatten = (errs: any): string[] => {
+          if (typeof errs === 'string') return [errs];
+          if (Array.isArray(errs)) return errs.flatMap(flatten);
+          if (typeof errs === 'object' && errs !== null) {
+            return Object.values(errs).flatMap(flatten);
+          }
+          return [];
+        };
+        const errorMsg = flatten(res.errors).join(' ');
+        setSubmitError(`Validation error: ${errorMsg}`);
       } else {
         setResult(res);
       }

@@ -11,10 +11,21 @@ from .serializers import (
 
 @api_view(['GET'])
 def locations(request):
-    from .models import State
+    from .models import Station
+
+    stations = Station.objects.filter(
+        wind_speed_ms__isnull=False,
+        seismic_zone__isnull=False,
+        seismic_zone__seismic_factor__isnull=False
+    ).select_related('state').order_by('state__name', 'name')
+
     data = {}
-    for st in State.objects.prefetch_related('station_set').order_by('name'):
-        data[st.name] = [s.name for s in st.station_set.order_by('name')]
+    for s in stations:
+        st_name = s.state.name
+        if st_name not in data:
+            data[st_name] = []
+        data[st_name].append(s.name)
+
     return Response({'states': data})
 
 

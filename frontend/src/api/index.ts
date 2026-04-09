@@ -65,7 +65,7 @@ export async function validateGeometry(
   return res.json();
 }
 
-// Pass any 2 of {girder_spacing, num_girders, deck_overhang}; backend solves the third
+
 export async function calculateGirder(params: {
   girder_spacing?: number;
   num_girders?: number;
@@ -81,7 +81,7 @@ export async function calculateGirder(params: {
   return res.json();
 }
 
-// 400 responses still have a useful JSON body — don't throw, just return it
+
 export async function submitDesign(payload: Record<string, unknown>): Promise<DesignResponse> {
   const res = await fetch(`${BASE_URL}/design/`, {
     method: 'POST',

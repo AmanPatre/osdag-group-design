@@ -141,7 +141,7 @@ function DynamicSummaryPanel({ state }: DynamicSummaryProps) {
   };
 
   return (
-    <div className="form-section" style={{ width: 'calc(100% - 40px)', maxWidth: '800px', margin: '20px auto' }}>
+    <div className="form-section" style={{ width: 'calc(100% - 40px)', maxWidth: '800px', margin: '0 auto 20px auto' }}>
       <div className="section-title">Design Summary</div>
         <div className="results-blocks-row">
           <div className="results-block">

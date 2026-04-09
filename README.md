@@ -29,13 +29,21 @@
 ![Full Application Dashboard](https://github.com/user-attachments/assets/eb1c56d1-0599-4162-a26f-525fab6b6f27)
 
 **Location Database — Green Auto-filled Values (Extra Credit ⭐)**
-![Location database showing green wind, seismic and temperature values](https://github.com/user-attachments/assets/6b5150ad-5741-4352-9632-5edd306907d1)
+![Location database showing green wind, seismic and temperature values](https://github.com/user-attachments/assets/12fb2d42-21da-4ffb-ad4a-8034ea4ec169)
 
 **Geometry Constraint Modal**
-![Modify Additional Geometry pop-up with auto-calculated values](https://github.com/user-attachments/assets/3d77a2ff-3a12-4b89-8392-701131c2fc67)
+![Modify Additional Geometry pop-up with auto-calculated values](https://github.com/user-attachments/assets/0e796bf8-f9d0-4afd-a0cb-7e47e86080a8
+)
 
 **Live Validation Errors**
-![Input validation error messages for span and carriageway width](https://github.com/user-attachments/assets/da79cc9f-335c-453e-ae24-2af63f0499c8)
+![Input validation error messages for span and carriageway width](https://github.com/user-attachments/assets/34291de1-a493-4366-a9b4-6f31c06fc237
+)
+**Live Design Summary Panel**
+![Real-time design summary table showing all 12 engineering parameters](https://github.com/user-attachments/assets/f9e0742a-f552-4ffd-a107-14a90c3a7853)
+
+**Responsive Mobile View**
+![Application stacked layout on a mobile screen](https://github.com/user-attachments/assets/64593c69-01a5-426a-ac26-d0e5db0c6501
+)
 
 ---
 

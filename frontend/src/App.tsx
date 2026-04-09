@@ -4,8 +4,7 @@ import LocationSection from './components/LocationSection';
 import GeometrySection from './components/GeometrySection';
 import MaterialSection from './components/MaterialSection';
 import type { AppState } from './types';
-import type { DesignResponse } from './api';
-import { submitDesign } from './api';
+
 import './styles/app.css';
 
 const BRIDGE_IMG = '/bridge.png';
@@ -20,82 +19,13 @@ const defaultState: AppState = {
 
 type TabId = 'basic' | 'additional';
 
-function buildPayload(s: AppState): Record<string, unknown> {
-  return {
-    structure_type: s.structureType,
-    location: {
-      state: s.location.state,
-      district: s.location.district,
-      wind_speed: s.location.resolved?.windSpeed,
-      seismic_zone: s.location.resolved?.seismicZone,
-      seismic_factor: s.location.resolved?.seismicFactor,
-      max_temp: s.location.resolved?.maxTemp,
-      min_temp: s.location.resolved?.minTemp,
-    },
-    span: parseFloat(s.geometry.span) || null,
-    carriageway_width: parseFloat(s.geometry.carriagewayWidth) || null,
-    footpath: s.geometry.footpath,
-    skew_angle: parseFloat(s.geometry.skewAngle) || 0,
-    girder_spacing: parseFloat(s.additionalGeometry.girderSpacing) || null,
-    num_girders: parseInt(s.additionalGeometry.numGirders, 10) || null,
-    deck_overhang: parseFloat(s.additionalGeometry.deckOverhang) || null,
-    girder_steel: s.materials.girderSteel,
-    cross_bracing_steel: s.materials.crossBracingSteel,
-    deck_concrete: s.materials.deckConcrete,
-  };
-}
 
 export default function App() {
   const [state, setState] = useState<AppState>(defaultState);
   const [activeTab, setActiveTab] = useState<TabId>('basic');
-  const [designing, setDesigning] = useState(false);
-  const [result, setResult] = useState<DesignResponse | null>(null);
-  const [submitError, setSubmitError] = useState('');
 
   const isOther = state.structureType === 'other';
 
-  async function handleDesign() {
-    const span = parseFloat(state.geometry.span);
-    const cw = parseFloat(state.geometry.carriagewayWidth);
-
-    if (isNaN(span) || isNaN(cw)) {
-      setSubmitError('Please enter Span and Carriageway Width before running Design.');
-      return;
-    }
-    if (span < 20 || span > 45) {
-      setSubmitError('Span must be between 20 m and 45 m.');
-      return;
-    }
-    if (cw < 4.25 || cw >= 24) {
-      setSubmitError('Carriageway width must be ≥ 4.25 m and < 24 m.');
-      return;
-    }
-
-    setDesigning(true);
-    setResult(null);
-    setSubmitError('');
-    try {
-      const res = await submitDesign(buildPayload(state));
-      if (res.errors) {
-        const flatten = (errs: any): string[] => {
-          if (typeof errs === 'string') return [errs];
-          if (Array.isArray(errs)) return errs.flatMap(flatten);
-          if (typeof errs === 'object' && errs !== null) {
-            return Object.values(errs).flatMap(flatten);
-          }
-          return [];
-        };
-        const errorMsg = flatten(res.errors).join(' ');
-        setSubmitError(`Validation error: ${errorMsg}`);
-      } else {
-        setResult(res);
-      }
-    } catch {
-      setSubmitError('Could not reach the server. Make sure the backend is running on port 8000.');
-    } finally {
-      setDesigning(false);
-    }
-  }
 
   return (
     <div className="app-root">
@@ -160,12 +90,10 @@ export default function App() {
                   <button
                     id="btn-reset"
                     className="btn btn-ghost"
-                    disabled={designing}
-                    onClick={() => { setState(defaultState); setResult(null); setSubmitError(''); }}
+                    onClick={() => setState(defaultState)}
                   >
                     Reset
                   </button>
-                  {submitError && <span className="submit-error">{submitError}</span>}
                 </div>
               </div>
             )}

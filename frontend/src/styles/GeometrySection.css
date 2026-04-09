@@ -1,0 +1,18 @@
+.geom-action-row {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-4);
+  margin-top: var(--sp-2);
+}
+
+.geom-summary {
+  font-size: var(--font-sm);
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+}
+
+/* Extra errors returned exclusively by the backend */
+.server-errors {
+  margin-bottom: var(--sp-3);
+  padding-left: 2px;
+}

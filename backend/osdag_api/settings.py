@@ -6,7 +6,7 @@ SECRET_KEY = 'django-insecure-osdag-group-design-dev-key-change-in-production'
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['*'] # Accept traffic from any Render domain
 
 INSTALLED_APPS = [
     'django.contrib.contenttypes',
@@ -48,12 +48,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-CORS_ALLOWED_ORIGINS = [
-    'http://localhost:5173',
-    'http://localhost:5174',
-    'http://127.0.0.1:5173',
-    'http://127.0.0.1:5174',
-]
+CORS_ALLOW_ALL_ORIGINS = True # Allow your Vercel URL to connect directly
 
 REST_FRAMEWORK = {
     'DEFAULT_RENDERER_CLASSES': ['rest_framework.renderers.JSONRenderer'],

@@ -58,11 +58,11 @@ export default function GeometrySection({
   const skew = parseFloat(value.skewAngle);
 
   const spanErr = value.span !== '' && !isNaN(span) && (span < 20 || span > 45)
-    ? 'Outside the software range.' : '';
+    ? 'Span must be between 20m and 45m.' : '';
   const cwErr = value.carriagewayWidth !== '' && !isNaN(cw) && (cw < 4.25 || cw >= 24)
-    ? 'Must be ≥ 4.25 m and < 24 m.' : '';
+    ? 'Width must be between 4.25m and 24m.' : '';
   const skewWarn = value.skewAngle !== '' && !isNaN(skew) && (skew < -15 || skew > 15)
-    ? 'IRC 24 (2010) requires detailed analysis.' : '';
+    ? 'Values outside -15° to 15° require detailed analysis.' : '';
 
   const extraErrs = serverErrors.filter(m => !spanErr && !cwErr && !skewWarn && m.length > 0);
 
@@ -85,7 +85,7 @@ export default function GeometrySection({
         placeholder="e.g. 30"
         error={spanErr}
         isValid={value.span !== '' && !spanErr}
-        helperText="≥ 20 m, ≤ 45 m"
+        helperText="Range: 20m to 45m"
       />
 
       <InputField
@@ -99,7 +99,7 @@ export default function GeometrySection({
         placeholder="e.g. 7.5"
         error={cwErr}
         isValid={value.carriagewayWidth !== '' && !cwErr}
-        helperText="≥ 4.25 m, < 24 m"
+        helperText="Range: 4.25m to 24m"
       />
 
       <SelectField
@@ -125,7 +125,7 @@ export default function GeometrySection({
         placeholder="e.g. 0"
         warning={skewWarn}
         isValid={value.skewAngle !== '' && !skewWarn}
-        helperText="Preferably within -15° to +15°"
+        helperText="Recommended: -15° to 15°"
       />
 
       {extraErrs.length > 0 && (

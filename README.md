@@ -26,7 +26,7 @@
 > *Replace the placeholders below with your actual screenshots. Save them in an `assets/` folder at the root of the repo and update the paths.*
 
 **Full Application Dashboard**
-![Full Application Dashboard](https://github.com/user-attachments/assets/98498fa4-c161-496b-b58d-f13cc32fda47)
+![Full Application Dashboard](https://github.com/user-attachments/assets/eb1c56d1-0599-4162-a26f-525fab6b6f27)
 
 **Location Database — Green Auto-filled Values (Extra Credit ⭐)**
 ![Location database showing green wind, seismic and temperature values](https://github.com/user-attachments/assets/6b5150ad-5741-4352-9632-5edd306907d1)

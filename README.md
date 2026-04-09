@@ -336,4 +336,3 @@ vite ^6
 
 ---
 
-*Built with ❤️ for FOSSEE IITB — April 2026*

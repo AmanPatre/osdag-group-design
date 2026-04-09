@@ -237,8 +237,8 @@ function ResultsPanel({ result, onClose }: ResultsPanelProps) {
           <ResultRow label="Overall Bridge Width" value={`${inp.overall_bridge_width_m} m`} />
           <ResultRow label="Footpath" value={String(inp.footpath)} />
           <ResultRow label="Skew Angle" value={`${inp.skew_angle_deg}°`} />
-          {inp.girder_spacing_m && <ResultRow label="Girder Spacing" value={`${inp.girder_spacing_m} m`} />}
-          {inp.num_girders && <ResultRow label="No. of Girders" value={String(inp.num_girders)} />}
+          {inp.girder_spacing_m != null && <ResultRow label="Girder Spacing" value={`${inp.girder_spacing_m} m`} />}
+          {inp.num_girders != null && <ResultRow label="No. of Girders" value={String(inp.num_girders)} />}
           {inp.deck_overhang_m != null &&
             <ResultRow label="Deck Overhang" value={`${inp.deck_overhang_m} m`} />}
         </div>

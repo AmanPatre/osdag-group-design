@@ -40,6 +40,7 @@
 ![Real-time design summary table showing all 12 engineering parameters](https://github.com/user-attachments/assets/f9e0742a-f552-4ffd-a107-14a90c3a7853)
 
 **Responsive Mobile View**
+
 ![Application stacked layout on a mobile screen](https://github.com/user-attachments/assets/64593c69-01a5-426a-ac26-d0e5db0c6501
 )
 

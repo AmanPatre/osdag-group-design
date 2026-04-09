@@ -64,12 +64,12 @@ export default function AdditionalGeomModal({ carriagewayWidth, value, onConfirm
       return;
     }
 
-    const gs  = parseFloat(form.girderSpacing);
-    const ng  = parseInt(form.numGirders, 10);
+    const gs = parseFloat(form.girderSpacing);
+    const ng = parseInt(form.numGirders, 10);
     const dov = parseFloat(form.deckOverhang);
 
-    if (isNaN(gs) || gs <= 0)  { setError('Girder Spacing must be a positive number.'); return; }
-    if (isNaN(ng) || ng < 1)   { setError('No. of Girders must be a positive integer.'); return; }
+    if (isNaN(gs) || gs <= 0) { setError('Girder Spacing must be a positive number.'); return; }
+    if (isNaN(ng) || ng < 1) { setError('No. of Girders must be a positive integer.'); return; }
     if (isNaN(dov) || dov < 0) { setError('Deck Overhang must be ≥ 0.'); return; }
 
     setLoading(true);
@@ -86,8 +86,8 @@ export default function AdditionalGeomModal({ carriagewayWidth, value, onConfirm
 
       onConfirm({
         girderSpacing: String(res.girder_spacing ?? gs),
-        numGirders:    String(res.num_girders    ?? ng),
-        deckOverhang:  String(res.deck_overhang  ?? dov),
+        numGirders: String(res.num_girders ?? ng),
+        deckOverhang: String(res.deck_overhang ?? dov),
       });
 
     } catch {

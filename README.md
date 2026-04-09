@@ -21,6 +21,24 @@
 
 ---
 
+## 📸 Screenshots
+
+> *Replace the placeholders below with your actual screenshots. Save them in an `assets/` folder at the root of the repo and update the paths.*
+
+**Full Application Dashboard**
+![Full Application Dashboard](https://github.com/user-attachments/assets/98498fa4-c161-496b-b58d-f13cc32fda47)
+
+**Location Database — Green Auto-filled Values (Extra Credit ⭐)**
+![Location database showing green wind, seismic and temperature values](https://github.com/user-attachments/assets/6b5150ad-5741-4352-9632-5edd306907d1)
+
+**Geometry Constraint Modal**
+![Modify Additional Geometry pop-up with auto-calculated values](https://github.com/user-attachments/assets/3d77a2ff-3a12-4b89-8392-701131c2fc67)
+
+**Live Validation Errors**
+![Input validation error messages for span and carriageway width](https://github.com/user-attachments/assets/da79cc9f-335c-453e-ae24-2af63f0499c8)
+
+---
+
 ## ⭐ Extra Credit: Location Database (+20%)
 
 > I implemented the **full location database** as described under **Option A** of the screening task.
@@ -37,6 +55,8 @@ Instead of hardcoding values for only 5 cities, I built a complete database popu
 - Two dedicated REST API endpoints (`/api/locations/` and `/api/location-data/`) serve this data to the frontend.
 
 This was fully implemented in Django using proper relational models (`State`, `Station`, `SeismicZone`) — not a simple lookup table or hardcoded dictionary.
+
+![Selecting Maharashtra → Mumbai shows green wind speed, seismic zone and temperature values automatically](assets/screenshot-location-database.png)
 
 ---
 

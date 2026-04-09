@@ -23,8 +23,6 @@
 
 ## 📸 Screenshots
 
-> *Replace the placeholders below with your actual screenshots. Save them in an `assets/` folder at the root of the repo and update the paths.*
-
 **Full Application Dashboard**
 ![Full Application Dashboard](https://github.com/user-attachments/assets/eb1c56d1-0599-4162-a26f-525fab6b6f27)
 

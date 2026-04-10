@@ -105,7 +105,7 @@ The interface allows an engineer to:
 - If **Other** is selected, a context-aware message is displayed: *"Other structures not included."* and all remaining input sections are instantly disabled — preventing any accidental data entry.
   <div align="center">
   <br>
-  <img src="https://github.com/user-attachments/assets/820072c8-0b8d-4a88-a880-c17fac35815e" width="700" alt="Other">
+  <img src="https://github.com/user-attachments/assets/820072c8-0b8d-4a88-a880-c17fac35815e" width="600" alt="Other">
   <br><br>
 </div>
 

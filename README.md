@@ -48,7 +48,11 @@ Instead of hardcoding values for only 5 cities, I built a complete database popu
 
 This was fully implemented in Django using proper relational models (`State`, `Station`, `SeismicZone`) — not a simple lookup table or hardcoded dictionary.
 
-<img src="https://github.com/user-attachments/assets/12fb2d42-21da-4ffb-ad4a-8034ea4ec169" width="700" alt="Location database showing green wind, seismic and temperature values">
+<div align="center">
+  <br>
+  <img src="https://github.com/user-attachments/assets/12fb2d42-21da-4ffb-ad4a-8034ea4ec169" width="700" alt="Location database showing green wind, seismic and temperature values">
+  <br><br>
+</div>
 
 ---
 
@@ -126,7 +130,11 @@ Every field validates in real-time as the user types, with human-readable messag
 
 Validation hits both the **frontend** (instant feedback on keystrokes) and the **backend** (`/api/validate-geometry/` endpoint), giving engineering-grade double verification.
 
-<img src="https://github.com/user-attachments/assets/34291de1-a493-4366-a9b4-6f31c06fc237" width="400" alt="Input validation error messages for span and carriageway width">
+<div align="center">
+  <br>
+  <img src="https://github.com/user-attachments/assets/34291de1-a493-4366-a9b4-6f31c06fc237" width="400" alt="Input validation error messages for span and carriageway width">
+  <br><br>
+</div>
 
 ### 4. `Modify Additional Geometry` — Interactive Pop-up Dialog
 This is the most technically complex part of the implementation. The dialog enforces the following engineering constraint:
@@ -140,7 +148,11 @@ Overall Bridge Width = Carriageway Width + 5 m
 - The recalculation happens live on every keystroke using frontend math, confirmed by the `/api/calculate-girder/` backend endpoint on Apply.
 - Clear, specific error messages are shown for impossible configurations (e.g., negative deck overhang, zero-division).
 
-<img src="https://github.com/user-attachments/assets/0e796bf8-f9d0-4afd-a0cb-7e47e86080a8" width="600" alt="Modify Additional Geometry pop-up with auto-calculated values">
+<div align="center">
+  <br>
+  <img src="https://github.com/user-attachments/assets/0e796bf8-f9d0-4afd-a0cb-7e47e86080a8" width="600" alt="Modify Additional Geometry pop-up with auto-calculated values">
+  <br><br>
+</div>
 
 ### 5. `Material Inputs`
 Dropdown selectors for:
@@ -151,7 +163,11 @@ Dropdown selectors for:
 ### 6. `Live Design Summary` Panel
 The right-hand panel shows a real-time summary of all 12 design parameters across two side-by-side tables (Geometry & Materials). This updates instantly — no button click required.
 
-<img src="https://github.com/user-attachments/assets/f9e0742a-f552-4ffd-a107-14a90c3a7853" width="400" alt="Real-time design summary table showing all 12 engineering parameters">
+<div align="center">
+  <br>
+  <img src="https://github.com/user-attachments/assets/f9e0742a-f552-4ffd-a107-14a90c3a7853" width="400" alt="Real-time design summary table showing all 12 engineering parameters">
+  <br><br>
+</div>
 
 ### 7. Responsive Design
 The application is fully responsive across all screen sizes:
@@ -159,7 +175,11 @@ The application is fully responsive across all screen sizes:
 - **Tablet (768–1000px):** Header labels adapt with centered branding.
 - **Mobile (<768px):** Panels stack vertically with dual-zone independent scrolling (Input top zone / Summary bottom zone).
 
-<img src="https://github.com/user-attachments/assets/64593c69-01a5-426a-ac26-d0e5db0c6501" width="300" alt="Application stacked layout on a mobile screen">
+<div align="center">
+  <br>
+  <img src="https://github.com/user-attachments/assets/64593c69-01a5-426a-ac26-d0e5db0c6501" width="300" alt="Application stacked layout on a mobile screen">
+  <br><br>
+</div>
 
 ---
 

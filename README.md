@@ -103,6 +103,12 @@ The interface allows an engineer to:
 ### 1. `Type of Structure` Selection
 - A clean radio button group allows selecting **Highway** or **Other**.
 - If **Other** is selected, a context-aware message is displayed: *"Other structures not included."* and all remaining input sections are instantly disabled — preventing any accidental data entry.
+  <div align="center">
+  <br>
+  <img src="https://github.com/user-attachments/assets/820072c8-0b8d-4a88-a880-c17fac35815e" width="700" alt="Location database showing green wind, seismic and temperature values">
+  <br><br>
+</div>
+
 
 ### 2. `Project Location` — Dual Mode (with Full Database Integration ⭐)
 This section has two mutually exclusive modes:

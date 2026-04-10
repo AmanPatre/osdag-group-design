@@ -126,7 +126,7 @@ This section has two mutually exclusive modes:
 - Selecting this mode disables the dropdown and vice versa, ensuring mutual exclusivity.
   <div align="center">
   <br>
-  <img src="https://github.com/user-attachments/assets/ed776d12-50c6-4ba1-bc5c-b234fd2e42ec" width="700" alt="Custom Loading Parameters">
+  <img src="https://github.com/user-attachments/assets/ed776d12-50c6-4ba1-bc5c-b234fd2e42ec" width="600" alt="Custom Loading Parameters">
   <br><br>
 </div>
 

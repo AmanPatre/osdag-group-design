@@ -233,15 +233,17 @@ npm run dev
 The UI will be available at: `http://localhost:5173/`
 
 ### Step 4: Connect Frontend to Local Backend (Optional)
-By default, the frontend points to the production Render API.
-To use your local backend, open `frontend/src/api/index.ts` and change:
-```ts
-// Change this:
-const BASE_URL = 'https://osdag-group-design.onrender.com/api';
+By default, the frontend is configured to safely fall back to the production API on Render, so it works completely out-of-the-box with zero configuration required!
 
-// To this:
-const BASE_URL = 'http://localhost:8000/api';
+To point the frontend to the local Django server you started in Step 2:
+1. Locate the `.env.example` file in the `frontend/` directory.
+2. Rename it to `.env`.
+3. Uncomment the provided local URL variable so it looks like this:
+
+```env
+VITE_API_BASE_URL=http://localhost:8000/api
 ```
+4. Restart your React development server (`npm run dev`).
 
 ---
 
@@ -249,34 +251,38 @@ const BASE_URL = 'http://localhost:8000/api';
 
 ```
 osdag-group-design/
+├── .gitignore                 # Root ignore file
+├── README.md
 ├── backend/
+│   ├── .env.example           # Django environment template
 │   ├── design/
+│   │   ├── tests/             # Django testing sub-module
+│   │   │   └── test_views.py
 │   │   ├── models.py          # State, Station, SeismicZone models
 │   │   ├── serializers.py     # DRF serializers with IRC validation rules
-│   │   ├── views.py           # All 5 API endpoints
+│   │   ├── views.py           # All API endpoints
 │   │   └── urls.py            # URL routing
 │   ├── db.sqlite3             # Pre-populated engineering database
 │   ├── requirements.txt
 │   └── manage.py
 │
 └── frontend/
-    ├── src/
-    │   ├── components/
-    │   │   ├── StructureSection.tsx
-    │   │   ├── LocationSection.tsx
-    │   │   ├── GeometrySection.tsx
-    │   │   ├── MaterialSection.tsx
-    │   │   └── AdditionalGeomModal.tsx
-    │   ├── styles/
-    │   │   ├── app.css            # Main layout, design tokens, responsive rules
-    │   │   ├── global.css
-    │   │   └── GeometrySection.css
-    │   ├── api/
-    │   │   └── index.ts           # Typed API client
-    │   ├── types/
-    │   │   └── index.ts           # Shared TypeScript interfaces
-    │   └── App.tsx                # Root component + Dynamic Summary panel
-    └── vite.config.ts
+    ├── .env.example           # Vite environment template
+    ├── package.json
+    ├── vite.config.ts
+    └── src/
+        ├── __tests__/         # Vite/React testing structure
+        │   └── App.test.tsx
+        ├── components/
+        │   ├── ui/            # Reusable form primitives
+        │   └── [Feature Components...]
+        ├── styles/
+        │   └── app.css        # Main layout, tokens, responsive rules
+        ├── api/
+        │   └── index.ts       # Typed API client
+        ├── types/
+        │   └── index.ts       # Shared TypeScript interfaces
+        └── App.tsx            # Root component + Dynamic Summary panel
 ```
 
 ---

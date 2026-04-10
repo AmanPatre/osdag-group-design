@@ -105,7 +105,7 @@ The interface allows an engineer to:
 - If **Other** is selected, a context-aware message is displayed: *"Other structures not included."* and all remaining input sections are instantly disabled — preventing any accidental data entry.
   <div align="center">
   <br>
-  <img src="https://github.com/user-attachments/assets/820072c8-0b8d-4a88-a880-c17fac35815e" width="700" alt="Location database showing green wind, seismic and temperature values">
+  <img src="https://github.com/user-attachments/assets/820072c8-0b8d-4a88-a880-c17fac35815e" width="700" alt="Other">
   <br><br>
 </div>
 
@@ -124,6 +124,12 @@ This section has two mutually exclusive modes:
 **Mode 2: Tabulate Custom Loading Parameters (Manual Entry)**
 - A spreadsheet-style pop-up dialog allows engineers to manually enter all environmental parameters.
 - Selecting this mode disables the dropdown and vice versa, ensuring mutual exclusivity.
+  <div align="center">
+  <br>
+  <img src="https://github.com/user-attachments/assets/ed776d12-50c6-4ba1-bc5c-b234fd2e42ec" width="700" alt="Custom Loading Parameters">
+  <br><br>
+</div>
+
 
 ### 3. `Geometric Details` — Live Validation
 Every field validates in real-time as the user types, with human-readable messages:
@@ -165,6 +171,12 @@ Dropdown selectors for:
 - **Girder Steel:** E250, E350, E450
 - **Cross Bracing Steel:** E250, E350, E450
 - **Deck Concrete:** M25, M30, M35, M40, M45, M50, M55, M60
+
+  <div align="center">
+  <br>
+  <img src="https://github.com/user-attachments/assets/b1906630-89b9-4e45-b4c4-afa95de94910" width="400" alt="Real-time design summary table showing all 12 engineering parameters">
+  <br><br>
+</div>
 
 ### 6. `Live Design Summary` Panel
 The right-hand panel shows a real-time summary of all 12 design parameters across two side-by-side tables (Geometry & Materials). This updates instantly — no button click required.

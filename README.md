@@ -50,7 +50,7 @@ This was fully implemented in Django using proper relational models (`State`, `S
 
 <div align="center">
   <br>
-  <img src="https://github.com/user-attachments/assets/12fb2d42-21da-4ffb-ad4a-8034ea4ec169" width="700" alt="Location database showing green wind, seismic and temperature values">
+  <img src="https://github.com/user-attachments/assets/12fb2d42-21da-4ffb-ad4a-8034ea4ec169" width="500" alt="Location database showing green wind, seismic and temperature values">
   <br><br>
 </div>
 
@@ -105,7 +105,7 @@ The interface allows an engineer to:
 - If **Other** is selected, a context-aware message is displayed: *"Other structures not included."* and all remaining input sections are instantly disabled — preventing any accidental data entry.
   <div align="center">
   <br>
-  <img src="https://github.com/user-attachments/assets/820072c8-0b8d-4a88-a880-c17fac35815e" width="600" alt="Other">
+  <img src="https://github.com/user-attachments/assets/820072c8-0b8d-4a88-a880-c17fac35815e" width="500" alt="Other">
   <br><br>
 </div>
 
@@ -126,7 +126,7 @@ This section has two mutually exclusive modes:
 - Selecting this mode disables the dropdown and vice versa, ensuring mutual exclusivity.
   <div align="center">
   <br>
-  <img src="https://github.com/user-attachments/assets/ed776d12-50c6-4ba1-bc5c-b234fd2e42ec" width="600" alt="Custom Loading Parameters">
+  <img src="https://github.com/user-attachments/assets/ed776d12-50c6-4ba1-bc5c-b234fd2e42ec" width="500" alt="Custom Loading Parameters">
   <br><br>
 </div>
 
@@ -144,7 +144,7 @@ Validation hits both the **frontend** (instant feedback on keystrokes) and the *
 
 <div align="center">
   <br>
-  <img src="https://github.com/user-attachments/assets/34291de1-a493-4366-a9b4-6f31c06fc237" width="400" alt="Input validation error messages for span and carriageway width">
+  <img src="https://github.com/user-attachments/assets/34291de1-a493-4366-a9b4-6f31c06fc237" width="500" alt="Input validation error messages for span and carriageway width">
   <br><br>
 </div>
 
@@ -174,7 +174,7 @@ Dropdown selectors for:
 
   <div align="center">
   <br>
-  <img src="https://github.com/user-attachments/assets/b1906630-89b9-4e45-b4c4-afa95de94910" width="400" alt="Real-time design summary table showing all 12 engineering parameters">
+  <img src="https://github.com/user-attachments/assets/b1906630-89b9-4e45-b4c4-afa95de94910" width="500" alt="materials">
   <br><br>
 </div>
 
@@ -183,7 +183,7 @@ The right-hand panel shows a real-time summary of all 12 design parameters acros
 
 <div align="center">
   <br>
-  <img src="https://github.com/user-attachments/assets/f9e0742a-f552-4ffd-a107-14a90c3a7853" width="400" alt="Real-time design summary table showing all 12 engineering parameters">
+  <img src="https://github.com/user-attachments/assets/f9e0742a-f552-4ffd-a107-14a90c3a7853" width="500" alt="Real-time design summary table showing all 12 engineering parameters">
   <br><br>
 </div>
 

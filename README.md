@@ -12,7 +12,7 @@
 
 ---
 
-## 🌐 Live Links
+## Live Links
 
 | Service | URL | Notes |
 |---|---|---|
@@ -21,7 +21,7 @@
 
 ---
 
-## 📸 Application Interface
+## Application Interface
 
 <div align="center">
   <img src="https://github.com/user-attachments/assets/eb1c56d1-0599-4162-a26f-525fab6b6f27" width="800" alt="Full Application Dashboard">
@@ -31,7 +31,7 @@
 
 ---
 
-## ⭐ Extra Credit: Location Database (+20%)
+## Extra Credit: Location Database (+20%)
 
 > I implemented the **full location database** as described under **Option A** of the screening task.
 
@@ -56,7 +56,7 @@ This was fully implemented in Django using proper relational models (`State`, `S
 
 ---
 
-## 📋 Table of Contents
+## Table of Contents
 
 1. [Project Overview](#project-overview)
 2. [Technology Stack](#technology-stack)

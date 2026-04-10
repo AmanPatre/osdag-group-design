@@ -162,7 +162,7 @@ Overall Bridge Width = Carriageway Width + 5 m
 
 <div align="center">
   <br>
-  <img src="https://github.com/user-attachments/assets/0e796bf8-f9d0-4afd-a0cb-7e47e86080a8" width="600" alt="Modify Additional Geometry pop-up with auto-calculated values">
+  <img src="https://github.com/user-attachments/assets/0e796bf8-f9d0-4afd-a0cb-7e47e86080a8" width="500" alt="Modify Additional Geometry pop-up with auto-calculated values">
   <br><br>
 </div>
 
